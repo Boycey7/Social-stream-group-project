@@ -1,4 +1,3 @@
-"use client"
 import React, { useState, useEffect } from 'react';
 
 const AddPosts = ({ addPostInParent }) => {
@@ -45,16 +44,19 @@ const AddPosts = ({ addPostInParent }) => {
       name: "",
       image: "",
       summary: "",
-         });
+    });
     setImageFetched(false);  
   };
 
   return (
-    <form className='flex flex-col items-center justify-center p-4 bg-gray-200 rounded-md' onSubmit={handleSubmit}>
+    
+            
+    <form className='flex flex-col items-center gap-4 p-4 mx-auto bg-white border-b border-gray-200 rounded-md shadow-md w-96' onSubmit={handleSubmit}>
+      <h2 className='text-2xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-purple-600 bg-bottom bg-no-repeat bg-[length:100%_6px] hover:bg-[length:100%_100%] transition-[background-size]'>Add Social Post</h2>
       <input
         type='text'
         placeholder='Title'
-        className='p-2 border-gray-200 rounded-md'
+        className='w-full p-2 mt-2 border-0 rounded-md focus:outline-none focus:ring focus:border-gray-300'
         onChange={(event) => {
           setPostObject({ ...postObject, name: event.target.value });
         }}
@@ -63,7 +65,7 @@ const AddPosts = ({ addPostInParent }) => {
       <input
         type='url'
         placeholder='Image URL'
-        className='p-2 border-gray-200 rounded-md'
+        className='w-full p-2 mt-2 border-0 rounded-md focus:outline-none focus:ring focus:border-gray-300'
         onChange={(event) => {
           setPostObject({ ...postObject, image: event.target.value });
           setImageFetched(false);  
@@ -71,19 +73,20 @@ const AddPosts = ({ addPostInParent }) => {
         value={postObject.image}
       />
       {postObject.image && postObject.image.length > 0 && imageFetched && (  
-        <img src={postObject.image} alt='Preview' className='mt-2 rounded-md' style={{ width: '100px', height: '100px' }} />
+        <img src={postObject.image} alt='Preview' className='object-cover w-48 h-48 mt-2 mb-4 rounded-md' />
       )}
       <input
         type='text'
         placeholder='Summary'
-        className='p-2 border-gray-200 rounded-md'
+        className='w-full p-2 mt-2 border-0 rounded-md focus:outline-none focus:ring focus:border-gray-300'
         onChange={(event) => {
           setPostObject({ ...postObject, summary: event.target.value });
         }}
         value={postObject.summary}
       />
-      <button type="submit">Add Post</button>
+      <button type="submit" className='px-4 py-2 mt-2 text-white rounded-md bg-gradient-to-r from-orange-500 to-purple-600 hover:bg-gray-950-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'>Add Post</button>
     </form>
+    
   );
 };
 
