@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
 import AddPosts from '@/components/Addposts';
 import Footer from '@/components/Footer';
@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <div>
-        <div className="flex flex-wrap justify-center gap-4 p-4">
+      <div className="flex flex-wrap justify-center gap-4 p-4">
         {posts.map((post) => (
           <Post
             name={post.name}
@@ -57,7 +57,7 @@ export default function Home() {
             addPostHandler(post);
           }}
         />
-              </main>
+      </main>
       <Footer />
     </div>
   );
