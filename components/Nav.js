@@ -17,7 +17,12 @@ const Nav = () => {
     <nav className="p-4 bg-white border-b border-gray-200 md:p-5">
     <div className="flex items-center justify-between w-full">
 
-        <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-bottom bg-no-repeat bg-[length:100%_6px] hover:bg-[length:100%_100%] transition-[background-size]">Social</span>
+    <Link href="/"> 
+          <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-bottom bg-no-repeat bg-[length:100%_6px] hover:bg-[length:100%_100%] transition-[background-size]">
+            Social
+          </span>
+        </Link>
+
 
         <div className="flex items-center justify-center flex-grow space-x-3 md:space-x-5">
             <div className="flex items-center w-3/4 p-3 bg-gray-300 rounded-lg shadow-sm md:w-1/2">

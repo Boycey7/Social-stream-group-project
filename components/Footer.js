@@ -2,17 +2,17 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer class="flex flex-col items-center bg-neutral-200 text-center text-white dark:bg-neutral-600">
-      <div class="w-full bg-neutral-300 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200 flex justify-between items-center">
+    <footer className="flex flex-col items-center text-center text-white bg-neutral-200 dark:bg-neutral-600">
+      <div className="flex items-center justify-between w-full p-4 text-center bg-neutral-300 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
         
         <div>
           &copy;Jake Matt Vanessa Copyright
         </div>
 
-        <a href="https://github.com/Boycey7/Social-stream-group-project" class="text-neutral-800 dark:text-neutral-200">
+        <a href="https://github.com/Boycey7/Social-stream-group-project" className="text-neutral-800 dark:text-neutral-200">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
+            className="w-4 h-4"
             fill="currentColor"
             viewBox="0 0 24 24">
             <path
