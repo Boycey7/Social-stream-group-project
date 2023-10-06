@@ -1,7 +1,11 @@
+"use client"
+import React, { useState, useEffect } from 'react';
+import AddPosts from '@/components/Addposts';
+import Footer from '@/components/Footer';
 import Post from "@/components/cards/Post";
 
 export default function Home() {
-  const posts = [
+  const [posts, setPosts] = useState([
     {
       id: 1,
       name: "hello",
@@ -20,27 +24,41 @@ export default function Home() {
       image: "image2",
       summary: "summary2",
     },
-  ];
+  ]);
 
+  const addPostHandler = (post) => {
+    const updatedPosts = [...posts, post];
+    setPosts(updatedPosts);
+    localStorage.setItem('posts', JSON.stringify(updatedPosts));
+  };
+
+  useEffect(() => {
+    const storedPosts = localStorage.getItem('posts');
+    if (storedPosts) {
+      setPosts(JSON.parse(storedPosts));
+    }
+  }, []);
 
   return (
     <div>
-      {/* <Title text="These are some of my favorite movies or are they?" /> */}
-      <div className="flex flex-wrap justify-center gap-4 p-4">
-        <Post
-        />
-        {posts.map((post) => {
-          // return <Post {...post} key={post.id} />;
-          return (
-            <Post
-              name={post.name}
-              image={post.image}
-              summary={post.summary}
-              key={post.id}
-            />
-          )
-        })}
+        <div className="flex flex-wrap justify-center gap-4 p-4">
+        {posts.map((post) => (
+          <Post
+            name={post.name}
+            image={post.image}
+            summary={post.summary}
+            key={post.id}
+          />
+        ))}
       </div>
+      <main className="p-6">
+        <AddPosts
+          addPostInParent={(post) => {
+            addPostHandler(post);
+          }}
+        />
+              </main>
+      <Footer />
     </div>
   );
 }
