@@ -50,11 +50,11 @@ const AddPosts = ({ addPostInParent }) => {
   };
 
   return (
-    <form className='flex flex-col justify-center items-center p-4 bg-gray-200 rounded-md' onSubmit={handleSubmit}>
+    <form className='flex flex-col items-center justify-center p-4 bg-gray-200 rounded-md' onSubmit={handleSubmit}>
       <input
         type='text'
         placeholder='Title'
-        className='p-2 rounded-md border-gray-200'
+        className='p-2 border-gray-200 rounded-md'
         onChange={(event) => {
           setPostObject({ ...postObject, name: event.target.value });
         }}
@@ -63,7 +63,7 @@ const AddPosts = ({ addPostInParent }) => {
       <input
         type='url'
         placeholder='Image URL'
-        className='p-2 rounded-md border-gray-200'
+        className='p-2 border-gray-200 rounded-md'
         onChange={(event) => {
           setPostObject({ ...postObject, image: event.target.value });
           setImageFetched(false);  
@@ -76,7 +76,7 @@ const AddPosts = ({ addPostInParent }) => {
       <input
         type='text'
         placeholder='Summary'
-        className='p-2 rounded-md border-gray-200'
+        className='p-2 border-gray-200 rounded-md'
         onChange={(event) => {
           setPostObject({ ...postObject, summary: event.target.value });
         }}

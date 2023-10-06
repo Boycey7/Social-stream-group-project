@@ -23,7 +23,7 @@ const Footer = () => {
 
    <div
     class="w-full bg-neutral-300 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
-    ©Jake Matt Vanessa Copyright
+    &copy;Jake Matt Vanessa Copyright
   </div>
 </footer>
   );
