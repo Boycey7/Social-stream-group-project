@@ -22,24 +22,17 @@ export default function Home() {
     },
   ];
 
-
   return (
     <div>
-      {/* <Title text="These are some of my favorite movies or are they?" /> */}
       <div className="flex flex-wrap justify-center gap-4 p-4">
-        <Post
-        />
-        {posts.map((post) => {
-          // return <Post {...post} key={post.id} />;
-          return (
-            <Post
-              name={post.name}
-              image={post.image}
-              summary={post.summary}
-              key={post.id}
-            />
-          )
-        })}
+        {posts.map((post) => (
+          <Post
+            name={post.name}
+            image={post.image}
+            summary={post.summary}
+            key={post.id}
+          />
+        ))}
       </div>
     </div>
   );
