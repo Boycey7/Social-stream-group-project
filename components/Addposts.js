@@ -11,25 +11,19 @@ const AddPosts = ({ addPostInParent }) => {
 
   const fetchImage = async () => {
     try {
-      const response = await fetch(postObject.image);
-      if (response.ok) {
-        const blob = await response.blob();
-        const objectURL = URL.createObjectURL(blob);
-        setPostObject({ ...postObject, image: objectURL });
-        setImageFetched(true);  
-      } else {
-        console.error('Failed to fetch image. Response status:', response.status);
-      }
+        const response = await fetch(postObject.image);
+        if (response.ok) {
+            const blob = await response.blob();
+            const objectURL = URL.createObjectURL(blob);
+            setPostObject({ ...postObject, image: objectURL });
+            setImageFetched(true);
+        } else {
+            console.error('Failed to fetch image. Response status:', response.status);
+        }
     } catch (error) {
-      console.error('Error fetching image:', error);
+        console.error('Error fetching image:', error);
     }
   };
-
-  useEffect(() => {
-    if (postObject.image && !imageFetched) {
-      fetchImage();
-    }
-  }, [postObject.image, imageFetched]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,14 +32,24 @@ const AddPosts = ({ addPostInParent }) => {
       alert('Please fill in all the required fields.');
       return;
     }
-    await fetchImage(); 
-    addPostInParent(postObject);
+    await fetchImage();
+
+    // Check if addPostInParent is provided, if not, use local storage
+    if (addPostInParent) {
+      addPostInParent(postObject);
+    } else {
+      // Local storage logic
+      const updatedPosts = JSON.parse(localStorage.getItem('posts') || '[]');
+      updatedPosts.push(postObject);
+      localStorage.setItem('posts', JSON.stringify(updatedPosts));
+    }
+
     setPostObject({
       name: "",
       image: "",
       summary: "",
     });
-    setImageFetched(false);  
+    setImageFetched(false);
   };
 
   return (
